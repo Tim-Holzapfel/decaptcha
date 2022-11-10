@@ -1,0 +1,118 @@
+[build-system]
+    build-backend = "poetry.core.masonry.api"
+    requires      = ["poetry-core>=1.0.0"]
+[tool.poetry]
+    authors = ["Tim Holzapfel <timholzapfel@outlook.com>"]
+    classifiers = [
+        "Development Status :: 5 - Production/Stable",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+    ]
+    description = "Solve automated Turing tests."
+    exclude = ["src/DeCaptcha/dev"]
+    license = "MIT"
+    name = "DeCaptcha"
+    packages = [{ include = "DeCaptcha", from = "src" }]
+    version = "1.0.0"
+[tool.poetry.dependencies]
+    importlib-resources = "^5.8"
+    matplotlib          = "^3.5"
+    numexpr             = "^2.8"
+    numpy               = "^1.23"
+    pandas              = "^1.4"
+    pendulum            = "^2.1"
+    progressbar2        = "^4.0"
+    pyarrow             = "^8.0"
+    python              = ">=3.8,<3.11"
+    regex               = "^2022.7"
+    wheel               = "*"
+[tool.poetry.group.dev.dependencies]
+    black           = "*"
+    darglint        = "*"
+    flake8          = "*"
+    isort           = "*"
+    mypy            = "*"
+    pycodestyle     = "*"
+    pydocstyle      = { extras = ["toml"], version = "*" }
+    pylint          = "*"
+    spyder-kernels  = "2.2.1"
+    torch           = "^1.13"
+    torchvision     = "^0.14"
+    types-PyYAML    = "*"
+    types-requests  = "*"
+    types-termcolor = "*"
+[tool.black]
+    line-length = 78
+[tool.isort]
+    balanced_wrapping              = true
+    case_sensitive                 = true
+    combine_as_imports             = true
+    combine_star                   = true
+    dedup_headings                 = true
+    ensure_newline_before_comments = true
+    float_to_top                   = true
+    force_grid_wrap                = 6
+    from_first                     = false
+    group_by_package               = true
+    ignore_comments                = true
+    import_heading_firstparty      = "Package Library"
+    import_heading_future          = "Future Implementations"
+    import_heading_localfolder     = "Local Library"
+    import_heading_stdlib          = "Standard Library"
+    import_heading_thirdparty      = "Thirdparty Library"
+    include_trailing_comma         = true
+    length_sort                    = false
+    length_sort_straight           = false
+    lexicographical                = true
+    line_length                    = 78
+    lines_after_imports            = 2
+    lines_between_sections         = 0
+    lines_between_types            = 0
+    multi_line_output              = 3
+    profile                        = "black"
+    remove_redundant_aliases       = false
+    use_parentheses                = true
+    virtual_env                    = ".venv"
+    wrap_length                    = 78
+[tool.pycln]
+    all = true
+[tool.pyright]
+    exclude                     = ["**/dev", "**/.venv"]
+    reportGeneralTypeIssues     = true
+    reportMissingModuleSource   = false
+    reportPrivateUsage          = false
+    reportUnknownMemberType     = false
+    reportUnknownVariableType   = true
+    reportUnnecessaryIsInstance = false
+[tool.mypy]
+    allow_untyped_globals = false
+    check_untyped_defs = true
+    color_output = true
+    disable_error_code = ["no-redef", "no-untyped-call"]
+    disallow_incomplete_defs = true
+    disallow_subclassing_any = false
+    disallow_untyped_calls = true
+    disallow_untyped_defs = true
+    implicit_reexport = false
+    local_partial_types = false
+    no_implicit_optional = true
+    plugins = [
+        "D:/Github/mypy/mypy/plugins/dataclasses.py",
+        "D:/Github/mypy/mypy/plugins/common.py",
+        "D:/Github/mypy/mypy/plugins/default.py",
+    ]
+    python_version = "3.10"
+    show_column_numbers = true
+    show_error_codes = true
+    show_error_context = true
+    strict_optional = true
+    warn_no_return = true
+    warn_redundant_casts = true
+    warn_return_any = false
+    warn_unreachable = true
+    warn_unused_configs = true
+    warn_unused_ignores = false
+[tool.pydocstyle]
+    docstring_convention = "numpy"
+[tool.darglint]
+    docstring_style = "numpy"
+    strictness      = "full"
